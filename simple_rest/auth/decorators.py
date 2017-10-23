@@ -1,7 +1,5 @@
 from datetime import datetime
 
-from django.http import HttpResponse
-
 from .signature import calculate_signature
 from ..utils.decorators import wrap_object
 from ..exceptions import HttpError
@@ -103,15 +101,14 @@ def validate_signature(request, secret_key):
     # Make sure the signature has not expired
     local_time = datetime.utcnow()
     remote_time = datetime.utcfromtimestamp(timestamp)
-    
-    
-    # this stops a bug if the client clock is ever a little ahead of 
+
+    # This stops a bug if the client clock is ever a little ahead of
     # the server clock.  Makes the window of acceptable time current +/- 5 mins
     if local_time > remote_time:
         delta = local_time - remote_time
-    else:   
+    else:
         delta = remote_time - local_time
-    
+
     if delta.seconds > 5 * 60:  # If the signature is older than 5 minutes, it's invalid
         return False
 

@@ -12,7 +12,7 @@ try:
     from pygments.lexers import JSONLexer
     from pygments.formatters import HtmlFormatter
     PYGMENTS_INSTALLED = True
-except Exception, e:
+except Exception:
     logging.info("Install pygments for syntax highlighting")
     PYGMENTS_INSTALLED = False
 
@@ -89,6 +89,7 @@ def to_html(data):
         html = base_html_template.render(c)
     return html
 
+
 def to_text(data):
     """
     Serializes a python object as plain text
@@ -98,9 +99,6 @@ def to_text(data):
     """
     try:
         serialized_content = to_json(data, indent=4)
-    except Exception, e:
+    except Exception:
         serialized_content = data
     return serialized_content
-
-
-

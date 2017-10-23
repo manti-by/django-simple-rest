@@ -40,14 +40,14 @@ class ModelForm(DjangoModelForm):
         self.data = data
 
         for field in self.instance.__class__._meta.fields:
-            if field.name not in self.data.keys() or self.data.get(field.name) == None:
+            if field.name not in self.data.keys() or self.data.get(field.name) is None:
                 inst_val = None
                 if self.instance.id:
                     try:
                         inst_val = getattr(self.instance, field.name)
-                        #Get the ID if this is a model object and
-                        #we're dealing with a foreign key
-                        #relationship.
+                        # Get the ID if this is a model object and
+                        # we're dealing with a foreign key
+                        # relationship.
                         inst_val = getattr(inst_val, 'id')
                     except (AttributeError, ObjectDoesNotExist):
                         pass

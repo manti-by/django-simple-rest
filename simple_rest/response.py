@@ -71,7 +71,7 @@ class RESTfulResponse(collections.MutableMapping, collections.Callable):
             def wrapper(request, *args, **kwargs):
                 try:
                     results = view_func(request, *args, **kwargs)
-                except HttpError, e:
+                except HttpError as e:
                     results = (
                         e.message and {'error': e.message} or None,
                         e.status

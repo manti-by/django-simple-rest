@@ -1,6 +1,8 @@
+import calendar
+import datetime
+
+from urllib.parse import urlencode
 from optparse import make_option
-import calendar, datetime
-import urllib
 
 from django.core.management.base import BaseCommand
 from ...auth.signature import calculate_signature
@@ -16,10 +18,9 @@ specified, the secure signature is also calculated and added to the result."""
 
     option_list = BaseCommand.option_list + (
         make_option('--secret-key',
-            dest='secret-key',
-            action='store',
-            help='Calculate the secure signature with the secret key'),
-        )
+                    dest='secret-key',
+                    action='store',
+                    help='Calculate the secure signature with the secret key'),)
 
     def handle(self, *data, **options):
         # Convert the data from a list of key, value pairs to a dict
@@ -42,4 +43,4 @@ specified, the secure signature is also calculated and added to the result."""
             data['t'] = timestamp
             data['sig'] = signature
 
-        print urllib.urlencode(data)
+        print(urlencode(data))
