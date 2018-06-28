@@ -16,7 +16,7 @@ setup(
     author='Alexander Chaika',
     author_email='manti.by@gmail.com',
     description='Simple REST library for Django',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     url='https://github.com/manti-by/djrest',
     license='BSD',
     packages=find_packages(),
