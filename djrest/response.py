@@ -7,9 +7,9 @@ from django.conf import settings
 from django.shortcuts import render_to_response
 from django.http import HttpResponse
 
-from .utils.decorators import wrap_object
-from .exceptions import HttpError
-from .utils.serializers import to_json, to_html, to_text
+from djrest.utils.decorators import wrap_object
+from djrest.exceptions import HttpError
+from djrest.utils.serializers import to_json, to_html, to_text
 
 
 DEFAULT_MIMETYPES = {

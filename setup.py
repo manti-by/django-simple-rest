@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -5,30 +7,27 @@ except ImportError:
     sys.stderr.write("Error: setuptools is required to install this package.")
     sys.exit(1)
 
+from djrest import __version__
 
-__version__ = '1.5'
-__author__ = 'Alexander Chaika'
-__email__ = 'manti.by@gmail.com'
-__license__ = 'NEW-BSD'
 
 setup(
-    name='django-simple-rest-3',
+    name='djrest',
     version=__version__,
-    author=__author__,
-    author_email=__email__,
-    description='A drop dead simple package for creating RESTful APIs on top of Django',
+    author='Alexander Chaika',
+    author_email='manti.by@gmail.com',
+    description='Simple REST library for Django',
     long_description=open('README.rst').read(),
-    url='https://github.com/manti-by/django-simple-rest',
+    url='https://github.com/manti-by/djrest',
+    license='BSD',
     packages=find_packages(),
     install_requires=['setuptools', 'mimeparse'],
-    zip_safe=False,
     keywords='rest,django,api',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Environment :: Web Environment',
         'Framework :: Django',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: MIT License',
+        'License :: OSI Approved :: BSD License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 3.5',
         'Topic :: Internet :: WWW/HTTP',

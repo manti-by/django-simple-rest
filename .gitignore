@@ -4,6 +4,7 @@
 *.egg-info
 *.egg
 *.tar.gz
-build
-dist
+
+build/
+dist/
 .idea/

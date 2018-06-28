@@ -1,8 +1,8 @@
 from datetime import datetime
 
-from .signature import calculate_signature
-from ..utils.decorators import wrap_object
-from ..exceptions import HttpError
+from djrest.auth.signature import calculate_signature
+from djrest.utils.decorators import wrap_object
+from djrest.exceptions import HttpError
 
 
 def auth_required(secret_key_func):

@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.views.generic import View
 from django.views.decorators.csrf import csrf_exempt
 
-from .exceptions import HttpError
+from djrest.exceptions import HttpError
 
 
 class Resource(View):
